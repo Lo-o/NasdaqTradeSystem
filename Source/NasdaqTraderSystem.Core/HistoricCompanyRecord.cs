@@ -5,10 +5,10 @@ namespace NasdaqTraderSystem.Core;
 public class HistoricCompanyRecord
 {
     public string Name { get; set; }
-    public IHolding[] Holdings { get; set; }
+    public Holding[] Holdings { get; set; }
     public decimal Cash { get; set; }
     public DateOnly OnDate { get; set; }
-    public ITrade[] Transactions { get; set; }
+    public Trade[] Transactions { get; set; }
 
     public decimal TotalWorth
     {

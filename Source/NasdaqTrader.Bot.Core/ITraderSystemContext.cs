@@ -10,11 +10,11 @@ public interface ITraderSystemContext
     int AmountOfTradesPerDay { get; }
 
     decimal GetCurrentCash(ITraderBot traderBot);
-    decimal GetPriceOnDay(IStockListing listing);
-    ReadOnlyCollection<IStockListing> GetListings();
+    decimal GetPriceOnDay(StockListing listing);
+    ReadOnlyCollection<StockListing> GetListings();
     int GetTradesLeftForToday(ITraderBot traderBot);
-    bool BuyStock(ITraderBot traderBot,IStockListing listing, int amount);
-    bool SellStock(ITraderBot traderBot, IStockListing listing, int amount);
-    IHolding GetHolding(ITraderBot traderBot, IStockListing listing);
-    IHolding[] GetHoldings(ITraderBot traderBot);
+    bool BuyStock(ITraderBot traderBot,StockListing listing, int amount);
+    bool SellStock(ITraderBot traderBot, StockListing listing, int amount);
+    Holding GetHolding(ITraderBot traderBot, StockListing listing);
+    Holding[] GetHoldings(ITraderBot traderBot);
 }

@@ -9,10 +9,10 @@ public class TraderSystemSimulation
 
     public List<ITraderBot> Players { get; set; } = new();
 
-    public List<IStockListing> StockListings { get; set; } = new();
+    public List<StockListing> StockListings { get; set; } = new();
     public ConcurrentDictionary<ITraderBot, decimal> BankAccounts { get; set; } = new();
-    public ConcurrentDictionary<ITraderBot, List<IHolding>> Holdings { get; set; } = new();
-    public ConcurrentDictionary<ITraderBot, List<ITrade>> Trades { get; set; } = new();
+    public ConcurrentDictionary<ITraderBot, List<Holding>> Holdings { get; set; } = new();
+    public ConcurrentDictionary<ITraderBot, List<Trade>> Trades { get; set; } = new();
     public ConcurrentDictionary<ITraderBot, TraderSystemContext> Contexts { get; set; } = new();
     public DateOnly StartDate { get; set; }
     public DateOnly EndDate { get; set; }
@@ -89,7 +89,7 @@ public class TraderSystemSimulation
     }
 
 
-    public decimal GetPriceOnDay(IStockListing listing, DateOnly currentDate)
+    public decimal GetPriceOnDay(StockListing listing, DateOnly currentDate)
     {
         var pricePoints = StockListings.First(b => b == listing).PricePoints;
         return pricePoints.FirstOrDefault(p => p.Date == currentDate)?
@@ -115,7 +115,7 @@ public class TraderSystemSimulation
             return false;
         }
 
-        var holding = Holdings[traderBot].FirstOrDefault(b => b.Listing == trade.Listing) as Holding;
+        var holding = Holdings[traderBot].FirstOrDefault(b => b.Listing == trade.Listing);
         if (holding == null)
         {
             holding = new Holding()

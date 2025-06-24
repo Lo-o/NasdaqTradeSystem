@@ -135,7 +135,7 @@ public class HtmlGenerator
         return tasks;
     }
 
-    private string? GetStockHtml(IStockListing listing, SimulationResults results)
+    private string? GetStockHtml(StockListing listing, SimulationResults results)
     {
         TickerTemplateContext context = new();
         context.Listing = listing;
@@ -256,18 +256,18 @@ internal class IndexContext
 internal class PlayerTemplateContext
 {
     public string CompanyName { get; set; }
-    public ITrade[] TradesForPlayer { get; set; }
+    public Trade[] TradesForPlayer { get; set; }
 }
 
 internal class TradesForPlayer
 {
     public string CompanyName { get; set; }
-    public ITrade[] Trades { get; set; }
+    public Trade[] Trades { get; set; }
 }
 
 internal class TickerTemplateContext
 {
-    public IStockListing Listing { get; set; }
+    public StockListing Listing { get; set; }
     public TradesForPlayer[] TradesForPlayers { get; set; }
     public TradeForPlayer[] Trades { get; set; }
 }
@@ -275,5 +275,5 @@ internal class TickerTemplateContext
 public class TradeForPlayer
 {
     public string Player { get; set; }
-    public ITrade Trade { get; set; }
+    public Trade Trade { get; set; }
 }

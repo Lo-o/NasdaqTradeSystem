@@ -1,17 +1,16 @@
 ﻿using System.Globalization;
-using NasdaqTrader.Bot.Core;
 
-namespace NasdaqTraderSystem.Core;
+namespace NasdaqTrader.Bot.Core;
 
-public class StockListing : IStockListing
+public class StockListing
 {
     public string Name { get; set; } = "";
     public string Ticker { get; set; } = "";
 
-    public IPricePoint[] PricePoints { get; set; } = Array.Empty<IPricePoint>();
+    public PricePoint[] PricePoints { get; set; } = Array.Empty<PricePoint>();
 }
 
-public class PricePoint : IPricePoint
+public class PricePoint
 {
     public DateOnly Date { get; set; }
     public decimal Price { get; set; }

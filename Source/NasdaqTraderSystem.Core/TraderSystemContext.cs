@@ -23,12 +23,12 @@ public class TraderSystemContext : ITraderSystemContext
         return _simulation.BankAccounts[traderBot];
     }
 
-    public decimal GetPriceOnDay(IStockListing listing)
+    public decimal GetPriceOnDay(StockListing listing)
     {
         return _simulation.GetPriceOnDay(listing, CurrentDate);
     }
 
-    public ReadOnlyCollection<IStockListing> GetListings()
+    public ReadOnlyCollection<StockListing> GetListings()
     {
         return _simulation.StockListings.AsReadOnly();
     }
@@ -39,7 +39,7 @@ public class TraderSystemContext : ITraderSystemContext
             .Count(c => c.ExecutedOn == CurrentDate);
     }
 
-    public bool BuyStock(ITraderBot traderBot, IStockListing listing, int amount)
+    public bool BuyStock(ITraderBot traderBot, StockListing listing, int amount)
     {
         if (amount <= 0)
         {
@@ -54,7 +54,7 @@ public class TraderSystemContext : ITraderSystemContext
         return _simulation.ProcessTrade(traderBot, trade, this);
     }
 
-    public bool SellStock(ITraderBot traderBot, IStockListing listing, int amount)
+    public bool SellStock(ITraderBot traderBot, StockListing listing, int amount)
     {
         if (amount <= 0)
         {
@@ -69,7 +69,7 @@ public class TraderSystemContext : ITraderSystemContext
         return _simulation.ProcessTrade(traderBot, trade, this);
     }
 
-    public IHolding GetHolding(ITraderBot traderBot, IStockListing listing)
+    public Holding GetHolding(ITraderBot traderBot, StockListing listing)
     {
         var holding = _simulation.Holdings[traderBot].FirstOrDefault(b => b.Listing == listing);
         if (holding == null)
@@ -84,23 +84,8 @@ public class TraderSystemContext : ITraderSystemContext
         return holding;
     }
 
-    public IHolding[] GetHoldings(ITraderBot traderBot)
+    public Holding[] GetHoldings(ITraderBot traderBot)
     {
         return _simulation.Holdings[traderBot].ToArray();
-    }
-}
-
-public class Holding : IHolding
-{
-    public IStockListing Listing { get; set; }
-    public int Amount { get; set; }
-
-    public IHolding Copy()
-    {
-        return new Holding()
-        {
-            Listing = Listing,
-            Amount = Amount
-        };
     }
 }

@@ -31,7 +31,7 @@ public class StockLoader
         _dataFolder = dataFolder;
     }
 
-    public List<IStockListing> GetListings(DateOnly from, DateOnly to)
+    public List<StockListing> GetListings(DateOnly from, DateOnly to)
     {
         List<StockListing> listings = new List<StockListing>();
 
@@ -64,7 +64,7 @@ public class StockLoader
                 }
             }
 
-            stockListing.PricePoints = pricePoints.OfType<IPricePoint>().ToArray();
+            stockListing.PricePoints = pricePoints.OfType<PricePoint>().ToArray();
             listings.Add(stockListing);
         }
 
@@ -81,7 +81,7 @@ public class StockLoader
 
         tickerInfo = null;
         
-        return listings.OfType<IStockListing>().ToList();
+        return listings.OfType<StockListing>().ToList();
     }
 
     public void Dispose()

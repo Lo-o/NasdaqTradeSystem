@@ -1,5 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36212.18 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NasdaqTraderSystem.Core", "NasdaqTraderSystem.Core\NasdaqTraderSystem.Core.csproj", "{724854C3-625A-4467-95D0-8E18B50345C8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NasdaqTrader.Bot.Core", "NasdaqTrader.Bot.Core\NasdaqTrader.Bot.Core.csproj", "{35CF3EC7-00FC-4E57-845D-DAA4DDA35B6A}"
@@ -7,6 +10,12 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NasdaqTrader.CLI", "NasdaqTrader.CLI\NasdaqTrader.CLI.csproj", "{474CB44E-FBD1-40E1-84E9-9CDD6604E1E7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NasdaqTraderSystem.Html", "NasdaqTraderSystem.Html\NasdaqTraderSystem.Html.csproj", "{4B0F462D-4E2F-4B8E-BE59-F7211B6FFB3C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bots", "Bots", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EastBankBot", "..\Bots\EastBankBot\EastBankBot.csproj", "{F4A662C7-0330-C395-1961-55079118E802}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleTraderBot", "..\Bots\ExampleTraderBot\ExampleTraderBot.csproj", "{FAB0BEB9-E965-3636-36F6-12891CBB43C8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,13 +35,27 @@ Global
 		{474CB44E-FBD1-40E1-84E9-9CDD6604E1E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{474CB44E-FBD1-40E1-84E9-9CDD6604E1E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{474CB44E-FBD1-40E1-84E9-9CDD6604E1E7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{52CBEC64-6F3F-490D-B17D-782A7B36D74B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{52CBEC64-6F3F-490D-B17D-782A7B36D74B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{52CBEC64-6F3F-490D-B17D-782A7B36D74B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{52CBEC64-6F3F-490D-B17D-782A7B36D74B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4B0F462D-4E2F-4B8E-BE59-F7211B6FFB3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4B0F462D-4E2F-4B8E-BE59-F7211B6FFB3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4B0F462D-4E2F-4B8E-BE59-F7211B6FFB3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4B0F462D-4E2F-4B8E-BE59-F7211B6FFB3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4A662C7-0330-C395-1961-55079118E802}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4A662C7-0330-C395-1961-55079118E802}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4A662C7-0330-C395-1961-55079118E802}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4A662C7-0330-C395-1961-55079118E802}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAB0BEB9-E965-3636-36F6-12891CBB43C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAB0BEB9-E965-3636-36F6-12891CBB43C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAB0BEB9-E965-3636-36F6-12891CBB43C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAB0BEB9-E965-3636-36F6-12891CBB43C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F4A662C7-0330-C395-1961-55079118E802} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{FAB0BEB9-E965-3636-36F6-12891CBB43C8} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {20AEAD19-5983-41E4-8CA5-5ED52DFDE29C}
 	EndGlobalSection
 EndGlobal
