@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "NasdaqTrader.CLI": {
+      "commandName": "Project",
+      "commandLineArgs": "-d ../Data -n 100 -t 2500 -s 1000"
+    }
+  }
+}

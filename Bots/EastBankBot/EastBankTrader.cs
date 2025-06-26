@@ -4,10 +4,13 @@ namespace EastBankBot;
 
 public class EastBankTrader : ITraderBot
 {
-    public string CompanyName => throw new NotImplementedException();
+    public string CompanyName { get; } = "Eastbank trading inc.";
 
     public Task DoTurn(ITraderSystemContext systemContext)
     {
-        throw new NotImplementedException();
+        var currentCash = systemContext.GetCurrentCash(this);
+
+
+        return Task.CompletedTask;
     }
 }
