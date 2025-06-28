@@ -19,6 +19,7 @@
       <PackageReference Include="FSharp.Core" Version="8.0.403" />
     </ItemGroup>
     <ItemGroup>
+        <ProjectReference Include="..\..\Bots\LucBot\LucBot.fsproj" />
         <ProjectReference Include="..\NasdaqTraderSystem.Core\NasdaqTraderSystem.Core.csproj" />
         <ProjectReference Include="..\NasdaqTraderSystem.Html\NasdaqTraderSystem.Html.csproj" />
     </ItemGroup>

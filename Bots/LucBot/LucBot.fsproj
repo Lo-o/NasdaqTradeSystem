@@ -15,7 +15,7 @@
 	</PropertyGroup>
 	
   <ItemGroup>
-    <Compile Include="EastBankFsTrader.fs" />
+    <Compile Include="Trader.fs" />
     <Compile Include="Library.fs" />
   </ItemGroup>
 

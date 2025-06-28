@@ -1,10 +1,12 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
-using System.Diagnostics;
-using System.Globalization;
 using NasdaqTrader.Bot.Core;
 using NasdaqTraderSystem.Core;
 using NasdaqTraderSystem.Html;
+using System.Diagnostics;
+using System.Globalization;
+using LucBot.Bots;
+using System.Numerics;
 
 var html = new HtmlGenerator();
 CultureInfo.CurrentCulture = new CultureInfo("en-US");
@@ -49,8 +51,11 @@ if (!int.TryParse(startingCashAsText, out startingCash))
 
 BotLoader botLoader = new BotLoader();
 
-var botTypes = new Dictionary<string, Type>();
-botLoader.DetermineBots(AppContext.BaseDirectory + "Bots", botTypes);
+var botTypes = new Dictionary<string, Type>()
+{
+    { "EastBank Trading Inc.",  new EastBankFsTraderBot().GetType()}
+};
+//botLoader.DetermineBots(AppContext.BaseDirectory + "Bots", botTypes);
 
 var stocksLoader = new StockLoader(dataFolder, amountOfStock);
 var year = new Random().Next(2021, 2024);
@@ -61,15 +66,19 @@ TraderSystemSimulation traderSystemSimulation = new TraderSystemSimulation(
     stocksLoader);
 
 Dictionary<ITraderBot, Task> playerTasks = new();
+
 foreach (var player in traderSystemSimulation.Players)
 {
-    playerTasks.Add(player,
-        Task.Run(async () =>
-        {
-            while (await traderSystemSimulation.DoSimulationStep(player))
-            {
-            }
-        }));
+
+    await traderSystemSimulation.DoSimulationStep(player);
+
+    //playerTasks.Add(player,
+    //    Task.Run(async () =>
+    //    {
+    //        while (await traderSystemSimulation.DoSimulationStep(player))
+    //        {
+    //        }
+    //    }));
 }
 
 await Task.Delay(timeLimit);
