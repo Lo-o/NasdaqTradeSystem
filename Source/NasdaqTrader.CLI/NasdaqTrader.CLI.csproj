@@ -16,7 +16,10 @@
         <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     </PropertyGroup>
     <ItemGroup>
-        <ProjectReference Include="..\NasdaqTraderSystem.Core\NasdaqTraderSystem.Core.csproj"/>
+      <PackageReference Include="FSharp.Core" Version="8.0.403" />
+    </ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\NasdaqTraderSystem.Core\NasdaqTraderSystem.Core.csproj" />
         <ProjectReference Include="..\NasdaqTraderSystem.Html\NasdaqTraderSystem.Html.csproj" />
     </ItemGroup>
 

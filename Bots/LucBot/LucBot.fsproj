@@ -5,6 +5,15 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
 
+	<PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+		<OutputPath>..\..\Build\Bots</OutputPath>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+		<OutputPath>..\..\Build\Bots</OutputPath>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+	</PropertyGroup>
+	
   <ItemGroup>
     <Compile Include="EastBankFsTrader.fs" />
     <Compile Include="Library.fs" />
