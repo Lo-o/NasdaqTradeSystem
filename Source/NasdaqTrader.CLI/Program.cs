@@ -69,8 +69,9 @@ Dictionary<ITraderBot, Task> playerTasks = new();
 
 foreach (var player in traderSystemSimulation.Players)
 {
-
-    await traderSystemSimulation.DoSimulationStep(player);
+    while (await traderSystemSimulation.DoSimulationStep(player))
+    {
+    }
 
     //playerTasks.Add(player,
     //    Task.Run(async () =>
@@ -84,16 +85,16 @@ foreach (var player in traderSystemSimulation.Players)
 await Task.Delay(timeLimit);
 foreach (var player in traderSystemSimulation.Players)
 {
-    if (playerTasks[player].IsCompleted == false)
-    {
-        traderSystemSimulation.DidNotFinished.Add(player);
-    }
+    //if (playerTasks[player].IsCompleted == false)
+    //{
+    //    traderSystemSimulation.DidNotFinished.Add(player);
+    //}
 }
 
-foreach (var player in traderSystemSimulation.Players)
-{
-    playerTasks[player].Wait();
-}
+//foreach (var player in traderSystemSimulation.Players)
+//{
+//    playerTasks[player].Wait();
+//}
 
 
 Console.WriteLine("Generating html results");
